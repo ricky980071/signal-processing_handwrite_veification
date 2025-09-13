@@ -1,0 +1,45 @@
+=== Chinese Character Verification System Analysis Report ===
+
+Generated at: 2025-05-29 13:43:44
+
+== Training Data Performance ==
+Training data size: 50
+Training accuracy: 1.0000
+
+Classification report for training data:
+              precision    recall  f1-score   support
+
+        Fake       1.00      1.00      1.00        25
+        Real       1.00      1.00      1.00        25
+
+    accuracy                           1.00        50
+   macro avg       1.00      1.00      1.00        50
+weighted avg       1.00      1.00      1.00        50
+
+Confusion matrix for training data:
+[[25, 0],
+ [0, 25]]
+
+== Testing Data Performance ==
+Testing data size: 50
+Testing accuracy: 0.9400
+
+Classification report for testing data:
+              precision    recall  f1-score   support
+
+        Fake       0.92      0.96      0.94        25
+        Real       0.96      0.92      0.94        25
+
+    accuracy                           0.94        50
+   macro avg       0.94      0.94      0.94        50
+weighted avg       0.94      0.94      0.94        50
+
+Confusion matrix for testing data:
+[[24, 1],
+ [2, 23]]
+
+== Model Parameters ==
+Model type: SVM
+Kernel: rbf
+C value: 10
+Gamma value: scale

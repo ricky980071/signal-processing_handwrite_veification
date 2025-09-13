@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title></title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <p><strong>Moments</strong></p>
+<p>定義二值圖像 ( B(m, n) ) 為：</p>
+<p>[
+B(m, n) =
+\begin{cases}
+1 &amp; \text{stroke} \
+0 &amp; \text{background}
+\end{cases}
+]</p>
+<p>其中 ( m, n ) 對應到圖像的座標（像素點位置）。我們以圖像大小為 (189 \times 189) 的情況為例，設定圖像中心點 ((95, 95)) 為原點 ((0, 0))，則實際的 ( m, n ) 可視為以此為基準的 ( x, y ) 座標。</p>
+<hr>
+<p>一階中心點（質心）可由下式求得：</p>
+<p>[
+m_0 = \frac{\sum_m \sum_n m \cdot B(m, n)}{\sum_m \sum_n B(m, n)}
+]</p>
+<p>[
+n_0 = \frac{\sum_m \sum_n n \cdot B(m, n)}{\sum_m \sum_n B(m, n)}
+]</p>
+<hr>
+<p>中心化的高階混合動差（central mixed moments）定義為：</p>
+<p>[
+V_{a,b} = \frac{\sum_m \sum_n (m - m_0)^a (n - n_0)^b \cdot B(m, n)}{\sum_m \sum_n B(m, n)} = \mathbb{E} \left[ (m - m_0)^a (n - n_0)^b \right]
+]</p>
+<p>其中 ( a + b = k ) 為某一階次（order (k)）的總和。舉例來說，若為二階（second-order）moment，則會包含以下三項：</p>
+<ul>
+<li>( V_{2,0} )</li>
+<li>( V_{1,1} )</li>
+<li>( V_{0,2} )</li>
+</ul>
+<p>這些可以用來描述圖像的橢圓性、偏斜程度、分佈方向等特徵。</p>
+<hr>
+<p><strong>應用於 SVM 特徵擴展：</strong></p>
+<p>將上述的三個二階動差 ( V_{2,0}, V_{1,1}, V_{0,2} ) 作為額外的三個特徵維度，加入原來的特徵向量之中，以提升 Support Vector Machine (SVM) 的分類能力。這樣原始的特徵向量會增加 3 維度（dimensions）。</p>
+<p>[
+\text{Original Feature Vector: } [x_1, x_2, ..., x_n]
+]
+[
+\text{Enhanced Feature Vector: } [x_1, x_2, ..., x_n, V_{2,0}, V_{1,1}, V_{0,2}]
+]</p>
+
+            
+            
+        </body>
+        </html>

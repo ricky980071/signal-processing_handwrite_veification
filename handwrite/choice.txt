@@ -1,0 +1,13 @@
+base_1_2_1
+（路徑為handwrite/1/database/base_1_2_1.bmp，最後面也就是第三個數字的1就是他是在1這個資料夾）
+
+base_1_8_2
+（也就是在handwrite/2/database/base_1_8_2.bmp,下面也按照這個邏輯)
+
+base_1_3_3
+base_1_8_4
+base_1_13_5
+base_1_4_6
+base_1_14_7
+base_1_9_8
+base_1_13_9
