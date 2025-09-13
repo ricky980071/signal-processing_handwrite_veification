@@ -1,0 +1,3 @@
+run random random_sampling_svm see SVM result
+run random random_sampling_svm_NN see NN result
+week 8 for SVM feature selection
